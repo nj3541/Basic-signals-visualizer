@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signals Visualizer | Basics</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Signals Visualizer – Basics</h1>
+    <p>Visualize unit step, ramp, sinusoid and exponential signals.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Signal settings</h2>
+      <div class="grid">
+        <label>Signal type
+          <select id="signalType">
+            <option value="step">Unit step u(t)</option>
+            <option value="ramp">Ramp r(t)</option>
+            <option value="sine">Sinusoid A·sin(ωt)</option>
+            <option value="expdecay">Exponential A·e<sup>-at</sup>u(t)</option>
+          </select>
+        </label>
+        <label>Amplitude A
+          <input type="number" id="amp" value="1" step="0.1" />
+        </label>
+        <label>ω (for sine)
+          <input type="number" id="omega" value="1" step="0.1" />
+        </label>
+        <label>a (for exp)
+          <input type="number" id="alpha" value="1" step="0.1" />
+        </label>
+        <label>t min
+          <input type="number" id="tmin" value="-5" step="0.5" />
+        </label>
+        <label>t max
+          <input type="number" id="tmax" value="5" step="0.5" />
+        </label>
+      </div>
+      <div class="buttons">
+        <button id="plotBtn">Plot signal</button>
+      </div>
+      <p class="hint">
+        Idea: connect visual shape with formula and properties (causal/non‑causal, even/odd, energy/power).
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Plot (rough)</h2>
+      <div id="plotArea" class="plot-area"></div>
+    </section>
+
+    <section class="card">
+      <h2>Key concepts</h2>
+      <ul>
+        <li>Unit step u(t) = 0 for t &lt; 0, 1 for t ≥ 0 → basic causal building block.</li>
+        <li>Ramp r(t) = t·u(t) → line starting at 0 for t ≥ 0.</li>
+        <li>Sinusoid A·sin(ωt) → periodic, fundamental frequency f = ω/(2π).</li>
+        <li>Exponential A·e<sup>-at</sup>u(t) → decays for a &gt; 0, causal.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 nj • Signals & Systems mini tool</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
